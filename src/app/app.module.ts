@@ -12,7 +12,7 @@ const AppRoutes:Routes = [
 {path:'home', component: HomeComponent },
 {path:'home', component: HomeComponent },
 {path:'login', component: LoginComponent},
-{path:'conversation', component: ConversationComponent },
+{path:'conversation/:uid', component: ConversationComponent },
 {path:'profile', component: ProfileComponent }
 ];
 

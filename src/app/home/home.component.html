@@ -1,3 +1,5 @@
-<p>
-  home works!
+<p *ngFor=" let user of friends; let i = index">
+	{{i}}.
+	{{ user.nick }} - {{ user.email }}
+	
 </p>

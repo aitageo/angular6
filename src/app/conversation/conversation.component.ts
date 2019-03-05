@@ -55,9 +55,11 @@ friend: User;
     this.friend = this.friends.find((record) => {
     return record.uid == this.friendId;	
     });
-    Console.log(this.friend);
-    
+    console.log(this.friend);
+
 }
+
+
   ngOnInit() {
   }
 

@@ -1,9 +1,42 @@
-<p>
-  {{friend | json}};
-</p>
-<p>
-   {{price | number: '1.2-2'}};
-</p>
-<p>
-	{{today | date:'medium'}};
-</p>
+<div class="conversationContainer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col"></div>
+        <div class="avatarFrameonline">
+          <img src="/assets/img/logo_live_online.png" id="homeAvatarPicture">
+       </div>
+     </div>
+     <div class="col-md-auto">
+         <h1>Eduardo</h1>
+            <span>Escribe lo que quieras</span>
+            <br>
+            <hr>
+             <div>
+              <form>
+                <div class="form-group">
+                   <textarea class="form-control"id="Area-de-Chat"rows="3"placeholder="Escribe menos de 140 caracteres"></textarea>
+                    <div class="col text-right">
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/regular_smile.gif"alt="">
+                      </i>
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/tongue_smile.gif"alt="">
+                      </i>
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/angry_smile.gif"alt="">
+                      </i>
+                      <button type="button"class="btn btn-primary btn-sm mr-1">
+                        Enviar
+                      </button>
+                      <label class="custom-file-upload mr-1">
+                        <input type="file">
+                        Selecciona Imagen
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      

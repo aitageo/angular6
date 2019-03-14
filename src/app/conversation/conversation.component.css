@@ -1,0 +1,17 @@
+.conversationContainer {
+  background-image: url('/assets/img/msnbg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+img.avatarImage{
+  height: 50px;
+  width: 50px;
+}
+.icon-chat{
+  height: 40px;
+  width: 40px;
+}
+.Area-de-Chat {
+ height: 40px;
+ width: 40px; 
+}

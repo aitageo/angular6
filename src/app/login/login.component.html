@@ -18,16 +18,16 @@
         </p>
         <div class="border">
           <div class="mr-2 ml-2 mt-2 mb-2">
-            <input type="email" placeholder="Ingresa tu E-mail" class="form-control"/>
+            <input [(ngModel)]="email" type="email" placeholder="Ingresa tu E-mail" class="form-control"/>
             <br/>
-            <input type="password" placeholder="Ingresa tu Contrase&ntilde;a" class="form-control"/>
+            <input  [(ngModel)]="password" type="password" placeholder="Ingresa tu Contrase&ntilde;a" class="form-control"/>
             <br/>
             <input *ngIf="operation == 'register'" type="text" placeholder="Ingresa tu Nick" class="form-control"/>
           </div>
         </div>
         <div class="text-center mt-2">
-          <a *ngIf="operation == 'login'" class="btn btn-success">Iniciar Sesi&oacute;n</a>
-          <a *ngIf="operation == 'register'" class="btn btn-success">Registrarme</a>
+          <a (click)="login()" *ngIf="operation == 'login'" class="btn btn-success">Iniciar Sesi&oacute;n</a>
+          <a (click)="register()" *ngIf="operation == 'register'" class="btn btn-success">Registrarme</a>
         </div>
       </div>
     </div>

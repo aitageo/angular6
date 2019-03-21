@@ -11,7 +11,6 @@ import { UserService } from "../services/user.service";
 })
 export class ConversationComponent implements OnInit {
 friendId:any;
-friends : User[];
 friend: User;
 price: number = 78.566767888; 
 today: any = Date.now();
@@ -19,11 +18,12 @@ today: any = Date.now();
               private userService: UserService                                       ) { 
   this.friendId = this.activatedRoute.snapshot.params['uid'];
   console.log(this.friendId);
- 
-   
-    this.friend = this.friends.find((record) => {
-    return record.uid == this.friendId;	
+  this.userService.getUserById(this.friendId).valueChanges().subscribe((data: User) => {
+      this.friend = data;
+    }, (error) => {
+      console.log(error);
     });
+
     console.log(this.friend);
 
 }

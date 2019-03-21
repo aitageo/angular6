@@ -11,6 +11,11 @@ export class HomeComponent implements OnInit {
  friends: User[]; 
  jquery: string = '';
   constructor(private userService: UserService) {
+  	 this.userService.getUsers().valueChanges().subscribe((data: User[]) => {
+      this.friends = data;
+    }, (error) => {
+      console.log(error);
+    });
   
   } 
    

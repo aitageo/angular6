@@ -20,9 +20,9 @@
           <div class="mr-2 ml-2 mt-2 mb-2">
             <input [(ngModel)]="email" type="email" placeholder="Ingresa tu E-mail" class="form-control"/>
             <br/>
-            <input  [(ngModel)]="password" type="password" placeholder="Ingresa tu Contrase&ntilde;a" class="form-control"/>
+            <input [(ngModel)]="password" type="password" placeholder="Ingresa tu Contrase&ntilde;a" class="form-control"/>
             <br/>
-            <input *ngIf="operation == 'register'" type="text" placeholder="Ingresa tu Nick" class="form-control"/>
+            <input [(ngModel)]="nick" type="nick" *ngIf="operation == 'register'" type="text" placeholder="Ingresa tu Nick" class="form-control"/>
           </div>
         </div>
         <div class="text-center mt-2">

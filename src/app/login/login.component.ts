@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../services/authentication.service";
 import { UserService } from "../services/user.service";
+import {Router} from '@angular/router';
+
 
 
 @Component({
@@ -13,10 +15,9 @@ export class LoginComponent implements OnInit {
 	email: string = null;
 	password: string = null;
   nick: string = null;
+  private router: Router;
 
-  constructor(private AuthenticationService:AuthenticationService,private userService:UserService) {
-   this.operation = 'login';
-       }
+  constructor(private AuthenticationService:AuthenticationService,private userService:UserService,router:Router) {}
 
   ngOnInit() {
   }
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   		(data)=> {
         alert('Loggeado con exito');
         console.log(data);
+        this.router.navigate(['home']); 
   		}).catch((Error)=>{
   			alert('ocurrio un error');
   			console.log(Error);

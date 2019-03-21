@@ -9,7 +9,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'platzinger';
 
-   constructor(){
-
-   }
+   constructor(private router:Router){}
 }

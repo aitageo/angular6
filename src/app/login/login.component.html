@@ -12,9 +12,9 @@
         <div class="text-center">
           <h3>Iniciar sesi&oacute;n</h3>
         </div>
-        <p *ngIf="operation == 'register'">Ya tienes cuenta? Has <a class="text-primary" (click)="operation= 'login'">Login</a>
+        <p *ngIf="operation == 'register'">Ya tienes cuenta? Has <a class="btn btn-primary btn-default" class="text-primary" (click)="operation= 'login'">Login</a>
         </p>
-        <p *ngIf="operation == 'login'">No tienes cuenta? <a class="text-primary" (click)="operation='register'">Registrarse</a>
+        <p *ngIf="operation == 'login'">No tienes cuenta? <a class="btn btn-primary btn-default" class="text-primary" (click)="operation='register'">Registrarse</a>
         </p>
         <div class="border">
           <div class="mr-2 ml-2 mt-2 mb-2">
@@ -26,8 +26,8 @@
           </div>
         </div>
         <div class="text-center mt-2">
-          <a (click)="login()" *ngIf="operation == 'login'" class="btn btn-success">Iniciar Sesi&oacute;n</a>
-          <a (click)="register()" *ngIf="operation == 'register'" class="btn btn-success">Registrarme</a>
+          <a class="btn btn-primary btn-default"(click)="login()" *ngIf="operation == 'login'" class="btn btn-success">Iniciar Sesi&oacute;n</a>
+          <a class="btn btn-primary btn-default"(click)="register()" *ngIf="operation == 'register'" class="btn btn-success">Registrarme</a>
         </div>
       </div>
     </div>

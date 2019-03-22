@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
 	email: string = null;
 	password: string = null;
   nick: string = null;
-  private router: Router;
+  
 
-  constructor(private AuthenticationService:AuthenticationService,private userService:UserService,router:Router) {}
+  constructor(private AuthenticationService:AuthenticationService,private userService:UserService, private router:Router) {}
 
   ngOnInit() {
   }
@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
         alert('Loggeado con exito');
         console.log(data);
         this.router.navigate(['home']); 
-  		}).catch((Error)=>{
+  		}).catch((error)=>{
   			alert('ocurrio un error');
-  			console.log(Error);
+  			console.log(error);
   		});
 
 
@@ -46,14 +46,14 @@ export class LoginComponent implements OnInit {
         this.userService.createUser(user).then( (data2)=>{
          alert('registrado con exito');
         console.log(data2);
-        }).catch((Error)=>{
+        }).catch((error)=>{
         alert('ocurrio un error');
-        console.log(Error);
+        console.log(error);
       });
   			
-  		}).catch((Error)=>{
+  		}).catch((error)=>{
   			alert('ocurrio un error');
-  			console.log(Error);
+  			console.log(error);
   		});
      }
 

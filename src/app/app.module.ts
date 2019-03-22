@@ -17,6 +17,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AuthenticationGuard } from './services/authentication.guard';
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 
 const AppRoutes:Routes = [
 {path:'home', component: HomeComponent, },
@@ -35,6 +37,7 @@ const AppRoutes:Routes = [
     ProfileComponent,
     MenuComponent,
     SearchPipe
+
     
    
     
@@ -47,7 +50,8 @@ const AppRoutes:Routes = [
      AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
      AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

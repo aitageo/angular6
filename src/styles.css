@@ -9,8 +9,8 @@ background: -ms-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1
 background: linear-gradient(to right, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=1 );
 text-align: center;
-padding: 5%;
-border-radius: 10px;
+padding: 15%;
+border-radius: 20px;
 display: inline-block;
 }
 
@@ -22,8 +22,8 @@ display: inline-block;
   background: linear-gradient(to bottom, #d2ff6b 0%,#81ff3d 50%,#0cff00 51%,#0dbc03 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff6b', endColorstr='#0dbc03',GradientType=0 ); /* IE6-9 */
   text-align: center;
-  padding: 5%;
-  border-radius: 10px;
+  padding: 30%;
+  border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.36);
   -webkit-box-shadow: 3px 3px 21px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 3px 21px 1px rgba(0,0,0,0.75);
@@ -63,4 +63,11 @@ input [type="file"] {
   padding: 6px 12px;
   cursor: pointer;
   border: 1px solid #8dd2f3;
+}
+.centerbtn{ 
+    position:absolute; 
+    width:100%; left:0;
+    text-align:right;
+    margin:auto;
+    /*position: relative; top: 50%; transform: translateY(-50%) translateX(30%); width: 100%;*/
 }

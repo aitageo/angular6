@@ -21,8 +21,8 @@ today: any = Date.now();
 user:User;
 textMessage:string;
 conversation_id:string;
-ids:string;
-uid:string;
+ids:any;
+uid:any;
 
   constructor(private activatedRoute : ActivatedRoute,
             private userService: UserService,
@@ -35,7 +35,8 @@ uid:string;
           this.user = user;
           this.userService.getUserById(this.friendId).valueChanges().subscribe((data: User) => {
           this.friend = data;
-          const ids =[this.user.uid,this.friend.uid].sort();//ordena el arreglo para obtener los ids en el mismo orden del arreglo
+          this.uid = data;
+          const ids = [this.user.uid, this.friend.uid].sort();//ordena el arreglo para obtener los ids en el mismo orden del arreglo
            this.conversation_id = ids.join('|');    
     }, (error) => {
       console.log(error);

@@ -3,9 +3,10 @@ nick :string;
 subnick?: string;
 age? :number;
 email:string;
-friend :boolean;
+friend :any;
 uid: any;
 status?:string;
 avatar?:string;
+friendId: any;
 
 };

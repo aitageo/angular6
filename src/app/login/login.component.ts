@@ -10,50 +10,43 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	operation: string ='login';
-	email: string = null;
-	password: string = null;
+	operation: string = 'login';
+  email: string = null;
+  password: string = null;
   nick: string = null;
-  
-
-  constructor(private AuthenticationService:AuthenticationService,private userService:UserService, private router:Router) {}
+  constructor(private authenticationService: AuthenticationService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  login(){
-  	this.AuthenticationService.loginWithEmail(this.email,this.password).then(
-  		(data)=> {
-        alert('Loggeado con exito');
-        console.log(data);
-        this.router.navigate(['home']); 
-  		}).catch((error)=>{
-  			alert('ocurrio un error');
-  			console.log(error);
-  		});
-
-
+  login() {
+    this.authenticationService.loginWithEmail(this.email, this.password).then( (data) => {
+      alert('Loggeado correctamente');
+      console.log(data);
+      this.router.navigate(['home']);
+    }).catch((error) => {
+      alert('Ocurrioo un error');
+      console.log(error);
+    });
   }
-  register(){
-  	this.AuthenticationService.registerWithEmail(this.email,this.password).then(
-  		(data)=> {
-        const user = {
-        uid: data.user.uid ,
-        email: this.email ,
-        nick: this.nick 
-        };
-        this.userService.createUser(user).then( (data2)=>{
-         alert('registrado con exito');
+
+  register() {
+    this.authenticationService.registerWithEmail(this.email, this.password).then( (data) => {
+      const user = {
+        uid: data.user.uid,
+        email: this.email,
+        nick: this.nick
+      };
+      this.userService.createUser(user).then((data2) => {
+        alert('Registrado correctamente');
         console.log(data2);
-        }).catch((error)=>{
-        alert('ocurrio un error');
+      }).catch((error) => {
+        alert('Ocurrioo un error');
         console.log(error);
       });
-  			
-  		}).catch((error)=>{
-  			alert('ocurrio un error');
-  			console.log(error);
-  		});
-     }
-
+    }).catch((error) => {
+      alert('Ocurrioo un error');
+      console.log(error);
+    });
+  }
 }

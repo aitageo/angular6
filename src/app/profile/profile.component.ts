@@ -22,61 +22,58 @@ export class ProfileComponent implements OnInit {
   user: User;
   imageChangedEvent: any = '';
   croppedImage: any = '';
-  picture:any; 
-  this:any;
-    constructor(private userService:UserService,private authenticationService:AuthenticationService,private firebaseStorage:AngularFireStorage) {
-   this.authenticationService.getStatus().subscribe((status)=>{
-   	this.userService.getUserById(status.uid).valueChanges().subscribe((data:User)=>{
-       this.user = data;
-       console.log(this.user);
-   },(Error)=>{
-   	console.log(Error);
-   });
-  },(Error)=>{
-  	console.log(Error);
-  });
-}
-
-ngOnInit() {
+  picture: any;
+  constructor(private userService: UserService, private authenticationService: AuthenticationService, private firebaseStorage: AngularFireStorage) {
+    this.authenticationService.getStatus().subscribe((status)=> {
+      this.userService.getUserById(status.uid).valueChanges().subscribe((data: User) => {
+        this.user = data;
+        console.log(this.user);
+      }, (error) => {
+        console.log(error);
+      });
+    }, (error) => {
+      console.log(error);
+    });
   }
-  saveSettings(){
-  	  if (this.croppedImage){
-          const currentPictureId = Date.now();
-          const pictures = this.firebaseStorage.ref('picture/' + currentPictureId + '.jpg').putString(this.croppedImage,'data_url');//se resuelve la promesa del ref 
-           pictures.then((result)=>{
-           	this.picture = this.firebaseStorage.ref('picture/' + currentPictureId + '.jpg').getDownloadURL();
-           	this.picture.subscribe((p,)=>{
-           		this.userService.setAvatar(p,this.user.uid).then(()=>{
-           			alert('avatar subido');
-           		}).catch((Error)=>{
-                   alert('error al subir el avatar');
-                   console.log('error');
-                });
-           		
-           	});
-           }).catch((Error)=>{
-           	console.log(Error);
-           });
-         }else {}
-  	this.userService.editUser(this.user).then(()=>{
-  		alert('cambios guradados');
-  	}).catch((Error)=>{
-         alert('cambios no guardados');
-         console.log(Error);
-  	});
+
+  ngOnInit() {
+  }
+  saveSettings() {
+    if (this.croppedImage) {
+      const currentPictureId = Date.now();
+      const pictures = this.firebaseStorage.ref('pictures/' + currentPictureId + '.jpg').putString(this.croppedImage, 'data_url');
+      pictures.then((result) => {
+        this.picture = this.firebaseStorage.ref('pictures/' + currentPictureId + '.jpg').getDownloadURL();
+        this.picture.subscribe((p) => {
+          this.userService.setAvatar(p, this.user.uid).then(() => {
+            alert('Avatar subido correctamentne');
+          }).catch((error) => {
+            alert('Hubo un error al tratar de subir la imagen');
+            console.log(error);
+          });
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else {
+      this.userService.editUser(this.user).then(() => {
+        alert('Cambios guardados!');
+      }).catch((error) => {
+        alert('Hubo un error');
+        console.log(error);
+      });
+    }
   }
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
-}
-imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
-}
-imageLoaded() {
+  }
+  imageCropped(image: string) {
+    this.croppedImage = image;
+  }
+  imageLoaded() {
     // show cropper
-}
-loadImageFailed() {
+  }
+  loadImageFailed() {
     // show message
+  }
 }
-}
-
-

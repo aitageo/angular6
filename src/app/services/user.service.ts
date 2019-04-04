@@ -7,21 +7,20 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class UserService {
 
-  constructor(private angularFiredatabase:AngularFireDatabase) {}
-   getUsers(){
-     return this.angularFiredatabase.list('/users');
-
-   }
-   getUserById(uid){
-     return this.angularFiredatabase.object('/users/' + uid);
-   }
-   createUser(user){
-    return this.angularFiredatabase.object('/users/' + user.uid).set(user);
-   }
-   editUser(user){
-    return this.angularFiredatabase.object('/users/' + user.uid).set(user);
-   }
-   setAvatar(avatar,uid){
-     return this.angularFiredatabase.object('users/' + uid + '/avatar').set(avatar);
-   }
+  constructor(private angularFireDatabase: AngularFireDatabase) {}
+  getUsers() {
+    return this.angularFireDatabase.list('/users');
+  }
+  getUserById(uid) {
+    return this.angularFireDatabase.object('/users/' + uid);
+  }
+  createUser(user) {
+    return this.angularFireDatabase.object('/users/' + user.uid).set(user);
+  }
+  editUser(user) {
+    return this.angularFireDatabase.object('/users/' + user.uid).set(user);
+  }
+  setAvatar(avatar, uid) {
+    return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
+  }
 }

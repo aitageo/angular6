@@ -32,7 +32,7 @@ export class ConversationComponent implements OnInit {
         this.user = user;
         this.userService.getUserById(this.friendId).valueChanges().subscribe((data: User) => {
           this.friend = data;
-          const ids = [this.user.uid, this.friend.uid].sort();
+          const ids = [this.user.uid, this.friendId].sort();
           this.conversation_id = ids.join('|');
           this.getConversation();
         }, (error) => {
